@@ -21,7 +21,7 @@ class RegionsController < ApplicationController
   end
 
   def set_variables
-    @name, @price, @from, @to = params[:name], params[:price], params[:from], params[:to]
+    @name, @price, @from, @to = params[:name], params[:price].to_f, params[:from], params[:to]
   end
 
   def find_region
@@ -29,7 +29,7 @@ class RegionsController < ApplicationController
   end
 
   def compute_inflated_price(price, historical_indexes)
-    (price.to_f * (historical_indexes.last / historical_indexes.first)).round
+    (price * (historical_indexes.last.round(2) / historical_indexes.first.round(2))).round
   end
 
 end

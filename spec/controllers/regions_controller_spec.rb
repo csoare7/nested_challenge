@@ -11,6 +11,7 @@ RSpec.describe RegionsController, type: :controller do
       params: { name: region.name, price: 100000, from: first_hs.date ,to: last_hs.date }, 
       format: :json
       price = JSON.parse(response.parsed_body())["inflated_price"]
+      puts price
       expect(price).to eq(366726)
     end
   end
