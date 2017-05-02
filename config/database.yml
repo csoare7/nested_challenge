@@ -14,10 +14,7 @@ test:
   <<: *default
   database: nested_test
 
-production: &deploy
-  database: nested_production
-  encoding: utf8
-  min_messages: warning
-  pool: <%= [Integer(ENV.fetch("MAX_THREADS", 5)), Integer(ENV.fetch("DB_POOL", 5))].max %>
-  timeout: 5000
-  url:  <%= ENV.fetch("DATABASE_URL", "") %>
+production:
+  <<: *default
+  database: nested_prod
+  pool: 15
