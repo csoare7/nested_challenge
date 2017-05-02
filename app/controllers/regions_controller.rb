@@ -7,7 +7,7 @@ class RegionsController < ApplicationController
       render json: { error: "Unable to fetch historical sale indexes for given dates" }, status: :not_found
     else
       inflated_price = compute_inflated_price(@price, historical_indexes)
-      render json: { inflated_price: inflated_price }
+      render json: { inflated_price: inflated_price, region_name: @region.name }
     end
   end
 
