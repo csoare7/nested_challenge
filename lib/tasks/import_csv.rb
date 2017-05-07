@@ -1,5 +1,5 @@
 require "csv"
-require File.expand_path('../../config/environment',  __FILE__)
+require File.expand_path('../../../config/environment',  __FILE__)
 require "region"
 
 regions = {}
